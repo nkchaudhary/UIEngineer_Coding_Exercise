@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <style>
+        section {
+            margin-top: -114px;
+            margin-left: -65px;
+        }
+
+        div {
+            float: left;
+            text-align: center;
+            padding: 20%;
+            color: #ffffff;
+            font-size: 24px;
+        }
+
+        button {
+            background-color: #72C3DC;
+            /* Green */
+            border: none;
+            color: white;
+            padding: 12px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            margin: 4px 2px;
+            cursor: pointer;
+            border-radius: 10px;
+            float: right;
+        }
+
+        .btnSection {
+            display: block;
+            margin: 0 auto;
+
+        }
+
+        .button2 {
+            background-color: #008CBA;
+        }
+
+        .div1 {
+            background-color: #111;
+        }
+
+        .div2 {
+            background-color: #333333;
+        }
+
+        .div3 {
+            background-color: #2e2e;
+        }
+
+        .div4 {
+            background-color: #EFEFEF;
+        }
+
+        .div5 {
+            background-color: #72C3DC;
+        }
+
+        .div6 {
+            background-color: #2B8EAD;
+        }
+
+        .div7 {
+            background-color: #6F98A8;
+        }
+
+        .div8 {
+            background-color: #BFBFBF;
+        }
+
+        .div9 {
+            background-color: #2F454E;
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        .row::after {
+            content: "";
+            clear: both;
+            display: table;
+        }
+
+        [class*="col-"] {
+            float: left;
+            padding: 4%;
+            display: table;
+        }
+
+        .col-1 {
+            width: 8.33%;
+        }
+
+        .col-2 {
+            width: 16.66%;
+        }
+
+        .col-3 {
+            width: 25%;
+        }
+
+        .col-4 {
+            width: 33%;
+        }
+
+        .col-5 {
+            width: 41.66%;
+        }
+
+        .col-6 {
+            width: 50%;
+        }
+
+        .col-7 {
+            width: 58.33%;
+        }
+
+        .col-8 {
+            width: 66.66%;
+        }
+
+        .col-9 {
+            width: 75%;
+        }
+
+        .col-10 {
+            width: 83.33%;
+        }
+
+        .col-11 {
+            width: 91.66%;
+        }
+
+        .col-12 {
+            width: 95%;
+        }
+
+        @media only screen and (max-width: 600px) {
+            body {
+                background-color: #fff;
+            }
+
+            [class*="col-"] {
+                float: left;
+                display: grid;
+            }
+
+            .col-12 {
+                width: 100%;
+                margin-top: -1%;
+                margin-left: 0%;
+            }
+
+            .col-4 {
+                width: 100%;
+            }
+
+            .div1 {
+                border-left: 10px solid #111;
+                background-color: #b9b3b33d;
+                margin: 5px;
+            }
+
+            .div2 {
+                border-left: 10px solid #2B8EAD;
+                background-color: #b9b3b33d;
+                margin: 5px;
+            }
+
+            .div3 {
+                border-left: 10px solid #2e2e;
+                background-color: #b9b3b33d;
+                margin: 5px;
+            }
+
+            .div4 {
+                border-left: 10px solid #2B8EAD;
+                background-color: #b9b3b33d;
+                margin: 5px;
+            }
+
+            .div5 {
+                border-left: 10px solid #72C3DC;
+                background-color: #b9b3b33d;
+                margin: 5px;
+            }
+
+            .div6 {
+                border-left: 10px solid #2B8EAD;
+                background-color: #b9b3b33d;
+                margin: 5px;
+            }
+
+            .div7 {
+                border-left: 10px solid #6F98A8;
+                background-color: #b9b3b33d;
+                margin: 5px;
+            }
+
+            .div8 {
+                border-left: 10px solid #BFBFBF;
+                background-color: #b9b3b33d;
+                margin: 5px;
+            }
+
+            .div9 {
+                border-left: 10px solid #2F454E;
+                background-color: #b9b3b33d;
+                margin: 5px;
+            }
+
+            button {
+                margin-left: 17%;
+                border-radius: 10px;
+                padding: 15px 32px;
+                float: left;
+                background-color: #72C3DC;
+            }
+
+            div {
+                float: left;
+                text-align: center;
+                padding: 20%;
+                color: #000;
+                font-size: 24px;
+            }
+
+        }
+    </style>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+</head>
+
+<body>
+    <button id="shuffle">Shuffle
+    </button>
+    <button class="button button2" id="short" onclick="sortListDir()">short</button>
+    <section id="container" class="col-12 row">
+        <div class="col-4 div1"> 1 </div>
+        <div class="col-4 div2"> 2 </div>
+        <div class="col-4 div3"> 3 </div>
+        <div class="col-4 div4"> 4 </div>
+        <div class="col-4 div5"> 5 </div>
+        <div class="col-4 div6"> 6 </div>
+        <div class="col-4 div7"> 7 </div>
+        <div class="col-4 div8"> 8 </div>
+        <div class="col-4 div9"> 9 </div>
+    </section>
+
+
+    <script>
+        $container = $("#container");
+        $divList = $("div");
+
+        $("#shuffle").on("click", function () {
+            //copy and remove all divs
+            $divCopy = $divList.clone(true);
+            $("div").remove();
+
+            while ($divCopy.length > 0) {
+                //chose random index of div array
+                var randomIndex = Math.floor(Math.random() * $divList.length);
+
+                $container.append($divCopy.splice(randomIndex, 1));
+            }
+        });
+
+        function sortListDir() {
+            var list, i, switching, b, shouldSwitch, dir, switchcount = 0;
+            list = document.getElementById("container");
+            switching = true;
+            
+            dir = "asc";
+            
+            while (switching) {
+               
+                switching = false;
+                b = list.getElementsByTagName("div");
+                
+                for (i = 0; i < (b.length - 1); i++) {
+                   
+                    shouldSwitch = false;
+                    
+                    if (dir == "asc") {
+                        if (b[i].innerHTML.toLowerCase() > b[i + 1].innerHTML.toLowerCase()) {
+                            
+                            shouldSwitch = true;
+                            break;
+                        }
+                    } else if (dir == "desc") {
+                        if (b[i].innerHTML.toLowerCase() < b[i + 1].innerHTML.toLowerCase()) {
+                            shouldSwitch = true;
+                            break;
+                        }
+                    }
+                }
+                if (shouldSwitch) {
+                    
+                    b[i].parentNode.insertBefore(b[i + 1], b[i]);
+                    switching = true;
+                    
+                    switchcount++;
+                } else {
+                   
+                    if (switchcount == 0 && dir == "asc") {
+                        dir = "desc";
+                        switching = true;
+                    }
+                }
+            }
+        }
+    </script>
+</body>
+</html>
