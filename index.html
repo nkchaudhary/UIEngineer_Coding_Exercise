@@ -3,9 +3,21 @@
 
 <head>
     <style>
+        html,
+        body {
+            background-color: #000;
+        }
+
+        .heading {
+            text-align: center;
+            background-color: #000;
+            color: lightgray;
+        }
+
         section {
             margin-top: -114px;
             margin-left: -65px;
+            background-color: #FFF;
         }
 
         div {
@@ -139,7 +151,10 @@
         }
 
         .col-12 {
-            width: 95%;
+            width: 90%;
+            padding: 10px;
+            padding-right: 0;
+            margin: 0px;
         }
 
         @media only screen and (max-width: 600px) {
@@ -154,8 +169,8 @@
 
             .col-12 {
                 width: 100%;
-                margin-top: -1%;
                 margin-left: 0%;
+                padding-right: 4%;
             }
 
             .col-4 {
@@ -218,6 +233,7 @@
 
             button {
                 margin-left: 17%;
+                margin-bottom: 4%;
                 border-radius: 10px;
                 padding: 15px 32px;
                 float: left;
@@ -238,9 +254,10 @@
 </head>
 
 <body>
+    <h2 class="heading">Shuffle and Sort</h2>
     <button id="shuffle">Shuffle
     </button>
-    <button class="button button2" id="short" onclick="sortListDir()">short</button>
+    <button class="button button2" id="short" onclick="sortListDir()">Short</button>
     <section id="container" class="col-12 row">
         <div class="col-4 div1"> 1 </div>
         <div class="col-4 div2"> 2 </div>
@@ -259,12 +276,12 @@
         $divList = $("div");
 
         $("#shuffle").on("click", function () {
-            //copy and remove all divs
+           
             $divCopy = $divList.clone(true);
             $("div").remove();
 
             while ($divCopy.length > 0) {
-                //chose random index of div array
+                
                 var randomIndex = Math.floor(Math.random() * $divList.length);
 
                 $container.append($divCopy.splice(randomIndex, 1));
@@ -275,18 +292,18 @@
             var list, i, switching, b, shouldSwitch, dir, switchcount = 0;
             list = document.getElementById("container");
             switching = true;
-            
+           
             dir = "asc";
             
             while (switching) {
-               
+                
                 switching = false;
                 b = list.getElementsByTagName("div");
                 
                 for (i = 0; i < (b.length - 1); i++) {
-                   
-                    shouldSwitch = false;
                     
+                    shouldSwitch = false;
+                   
                     if (dir == "asc") {
                         if (b[i].innerHTML.toLowerCase() > b[i + 1].innerHTML.toLowerCase()) {
                             
@@ -295,19 +312,20 @@
                         }
                     } else if (dir == "desc") {
                         if (b[i].innerHTML.toLowerCase() < b[i + 1].innerHTML.toLowerCase()) {
+                            
                             shouldSwitch = true;
                             break;
                         }
                     }
                 }
                 if (shouldSwitch) {
-                    
+                   
                     b[i].parentNode.insertBefore(b[i + 1], b[i]);
                     switching = true;
-                    
+                   
                     switchcount++;
                 } else {
-                   
+                    
                     if (switchcount == 0 && dir == "asc") {
                         dir = "desc";
                         switching = true;
@@ -317,4 +335,5 @@
         }
     </script>
 </body>
+
 </html>
